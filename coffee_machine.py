@@ -11,7 +11,7 @@ class CoffeeMachine:
     def  get_resources(self):
         items = []
         for resource, quantity in self.resources.items():
-            items.append(f"{resource.capitalize}: {quantity}\n")
+            items.append(f"{resource.title()}: {quantity} ")
         return "".join(items)
 
     def are_resources_enough(self, drink):

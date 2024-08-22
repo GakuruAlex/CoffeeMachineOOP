@@ -13,6 +13,7 @@ class Coins:
         for coin in self.COINS:
             coins_total += int(input(f"Please insert number of {coin}: ")) * self.COINS[coin]
         return coins_total
+
     def are_coins_enough(self, drink):
         print(f"{drink} cost: ${drink.cost}")
         coins =self.ask_for_coins()

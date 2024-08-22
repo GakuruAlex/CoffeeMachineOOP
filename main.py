@@ -8,7 +8,7 @@ def main():
     menu = Menu()
     is_on = True
     while is_on:
-        drink = input(f"Menu item : {menu.get_menu_items()}: ").lower()
+        drink = input(f"What would you like? : {menu.get_menu_items()}: ").lower()
         
         if drink == "end":
             break
@@ -23,6 +23,8 @@ def main():
                 if coins_enough:
                     coffee_machine.deduct_resources(drink)
                     print(f"Here is your {drink.name} Enjoy!")
+            else:
+                print(coffee_machine.get_missing_resources(missing_resources))
 
 
 if __name__ == "__main__":

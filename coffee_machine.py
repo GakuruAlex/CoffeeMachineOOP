@@ -7,7 +7,7 @@ class CoffeeMachine:
           "coffee" : 100
       }
         self.profit = 0
-    item = Menu()
+   
     def  get_resources(self):
         items = []
         for resource, quantity in self.resources.items():
@@ -16,9 +16,9 @@ class CoffeeMachine:
 
     def are_resources_enough(self, drink):
         missing_ingredients = []
-        menu_drink = self.item.get_drink(drink)
+        
         for resource, quantity in self.resources.items():
-            if quantity < menu_drink.ingredients[resource]:
+            if quantity < drink.ingredients[resource]:
                 missing_ingredients.append(resource)
         return len(missing_ingredients) == 0, missing_ingredients
 
@@ -33,5 +33,5 @@ class CoffeeMachine:
         return display_missing[len(missing_ingredients)].format(*missing_ingredients)
 
     def deduct_resources(self, drink):
-        for ingredient in drink["ingredients"]:
-            self.ingredient -= ingredient
+        for ingredient, quantity in drink.ingredients.items():
+            self.resources[ingredient] -= quantity

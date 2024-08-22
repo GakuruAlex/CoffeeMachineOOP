@@ -14,6 +14,11 @@ def main():
             break
         elif drink == "report":
             print(coffee_machine.get_resources())
+            print(f"Profit {coins.get_profit()}")
+        else:
+            make_coffee, missing_resources = coffee_machine.are_resources_enough(drink)
+            if make_coffee:
+                coins.are_coins_enough(drink)
 
 if __name__ == "__main__":
     main()

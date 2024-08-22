@@ -14,12 +14,12 @@ class Coins:
             coins_total += int(input(f"Please insert number of {coin}: ")) * self.COINS[coin]
         return coins_total
     def are_coins_enough(self, drink):
-        drink = self.menu.get_drink(drink)
+        print(f"{drink} cost: ${drink.cost}")
         coins =self.ask_for_coins()
-
+        print(f"You gave: ${coins}")
         if coins >= drink.cost:
             change = round(coins - drink.cost, 2)
-            print(f"Here is {change} in change")
+            print(f"Here is ${change} in change")
             self.profit += drink.cost
             return True
         print("Money not enough. Money refunded")

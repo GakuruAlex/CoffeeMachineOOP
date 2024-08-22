@@ -16,9 +16,6 @@ class Coins:
         if coins >= drink["cost"]:
             change =coins - drink["cost"]
             print(f"Here is {change} in change")
-
+            profit += drink["cost"]
             return True
         print("Money not enough. Money refunded")
-
-    def get_profit(self):
-        return self.profit

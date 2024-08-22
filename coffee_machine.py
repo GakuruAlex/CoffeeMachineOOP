@@ -1,21 +1,28 @@
+from menu import Menu
 class CoffeeMachine:
     def __init__(self):
-        self.water = 300
-        self.milk = 200
-        self.coffee = 100
+        self.resources ={
+          "water": 300,
+          "milk": 200,
+          "coffee" : 100
+      }
         self.profit = 0
-
+    item = Menu()
     def  get_resources(self):
-        return f"Water: {self.water}\nMilk: {self.milk}\nCoffee: {self.coffee}"
+        items = []
+        for resource, quantity in self.resources.items():
+            items.append(f"{resource.capitalize}: {quantity}\n")
+        return "".join(items)
 
     def are_resources_enough(self, drink):
         missing_ingredients = []
+        menu_drink = self.item.get_drink(drink)
+        for resource, quantity in self.resources.items():
+            if quantity < menu_drink.ingredients[resource]:
+                missing_ingredients.append(resource)
+        return len(missing_ingredients) == 0, missing_ingredients
 
-        for ingredient in drink["ingredients"]:
-            if self.ingredient < drink["ingredient"]:
-                missing_ingredients.append(ingredient)
 
-        return len(missing_ingredients) == 0 , missing_ingredients
 
     def get_missing_resources(self, missing_ingredients):
         display_missing = {
@@ -25,6 +32,6 @@ class CoffeeMachine:
         }
         return display_missing[len(missing_ingredients)].format(*missing_ingredients)
 
-    def add_profit(self, drink):
-        self.profit += drink["cost"]
-        return self.profit
+    def deduct_resources(self, drink):
+        for ingredient in drink["ingredients"]:
+            self.ingredient -= ingredient

@@ -23,4 +23,8 @@ class Menu:
         for item in self.menu_items:
             menu.append(item.name)
         return "/".join(menu)
-        
+    def get_drink(self, drink):
+        for item in self.menu_items:
+            if item.name == drink:
+                return item
+        return "Drink not Found"

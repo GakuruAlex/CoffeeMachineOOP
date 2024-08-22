@@ -14,7 +14,7 @@ def main():
             break
         elif drink == "report":
             print(coffee_machine.get_resources())
-            print(f"Profit {coins.get_profit()}")
+            print(f"Profit ${coins.get_profit()}")
         else:
             drink = menu.get_drink(drink)
             make_coffee, missing_resources = coffee_machine.are_resources_enough(drink)

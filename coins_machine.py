@@ -12,9 +12,13 @@ class Coins:
         return coins_total
     def are_coins_enough(self, drink):
         coins =self.ask_for_coins()
-        
+
         if coins >= drink["cost"]:
             change =coins - drink["cost"]
             print(f"Here is {change} in change")
+            profit += drink["cost"]
             return True
         print("Money not enough. Money refunded")
+    
+    def get_profit(self):
+        return self.profit

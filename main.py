@@ -8,12 +8,12 @@ def main():
     menu = Menu()
     is_on = True
     while is_on:
-        drink = input(f"What would you like? : {menu.get_menu_items()}: ").lower()
-        
+        drink = input(f"What would you like? ({menu.get_menu_items()}): ").lower()
+
         if drink == "end":
             break
         elif drink == "report":
-            print(coffee_machine.get_resources())
+            print(coffee_machine.get_resources() ,end="")
             print(f"Profit ${coins.get_profit()}")
         else:
             drink = menu.get_drink(drink)
@@ -23,6 +23,8 @@ def main():
                 if coins_enough:
                     coffee_machine.deduct_resources(drink)
                     print(f"Here is your {drink.name} Enjoy!")
+                else:
+                    print(f"Coins not enough. Money refunded")
             else:
                 print(coffee_machine.get_missing_resources(missing_resources))
 

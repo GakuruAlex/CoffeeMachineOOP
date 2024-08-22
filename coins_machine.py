@@ -23,7 +23,7 @@ class Coins:
             print(f"Here is ${change} in change")
             self.profit += drink.cost
             return True
-        print("Money not enough. Money refunded")
+        return False
 
     def get_profit(self):
         return self.profit
